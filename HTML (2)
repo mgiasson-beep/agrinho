@@ -1,0 +1,423 @@
+<!-- Começo do site -->
+<!DOCTYPE html>
+<!-- Define que é HTML5 -->
+
+<html>
+<!-- Início do código HTML -->
+
+<head>
+    <!-- Aqui ficam as configurações do site -->
+
+    <meta charset="UTF-8">
+    <!-- Permite usar acentos e ç -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Faz funcionar no celular -->
+
+    <title>Meu Projeto Agrinho</title>
+    <!-- Nome que aparece na aba do navegador -->
+
+    <style>
+        /* Aqui começa o CSS, que é a parte das cores e organização */
+
+        /* Fundo do site todo */
+        body {
+            background-color: #f0f8e8; /* Verde bem clarinho */
+            font-family: Arial, sans-serif; /* Fonte simples */
+            margin: 0;
+            padding: 0;
+            color: #333; /* Cor do texto */
+        }
+
+        /* Cabeçalho (parte de cima) */
+        header {
+            background-color: #2e7d32; /* Verde */
+            color: white; /* Texto branco */
+            text-align: center; /* Centralizado */
+            padding: 30px; /* Espaço por dentro */
+        }
+
+        /* Título principal */
+        header h1 {
+            font-size: 32px; /* Tamanho do título */
+            margin: 0;
+        }
+
+        /* Subtítulo */
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Menu de navegação */
+        nav {
+            background-color: #388e3c; /* Verde um pouco mais claro */
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Links do menu */
+        nav a {
+            color: white;
+            text-decoration: none; /* Tira o sublinhado */
+            font-size: 18px;
+            padding: 10px 20px; /* Espaço em volta dos links */
+        }
+
+        /* Quando passa o mouse no link */
+        nav a:hover {
+            background-color: #1b5e20; /* Fica verde mais escuro */
+            border-radius: 5px; /* Arredonda os cantos */
+        }
+
+        /* Container principal do conteúdo */
+        .conteudo {
+            max-width: 900px; /* Largura máxima */
+            margin: 20px auto; /* Centraliza */
+            padding: 20px;
+        }
+
+        /* Cada seção */
+        .secao {
+            background-color: white;
+            margin-bottom: 20px; /* Espaço entre as seções */
+            padding: 25px;
+            border-radius: 10px; /* Bordas arredondadas */
+            border-left: 5px solid #4caf50; /* Linha verde na esquerda */
+        }
+
+        /* Títulos das seções */
+        .secao h2 {
+            color: #2e7d32; /* Verde */
+            font-size: 24px;
+        }
+
+        /* Parágrafos */
+        .secao p {
+            font-size: 16px;
+            line-height: 1.6; /* Espaçamento entre linhas */
+        }
+
+        /* Imagem principal */
+        .img-principal {
+            width: 100%; /* Ocupa toda a largura */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Caixa de destaque (cards simples) */
+        .caixa {
+            background-color: #e8f5e9; /* Fundo verde claro */
+            border: 2px solid #a5d6a7; /* Borda verde */
+            padding: 20px;
+            margin-bottom: 15px; /* Espaço entre as caixas */
+            border-radius: 8px;
+        }
+
+        .caixa h3 {
+            color: #1b5e20; /* Verde escuro */
+            margin-top: 0;
+        }
+
+        /* Lista de resultados */
+        .lista-resultados {
+            list-style: none; /* Tira as bolinhas da lista */
+            padding: 0;
+        }
+
+        .lista-resultados li {
+            background-color: #f1f8e9;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Formulário */
+        label {
+            display: block; /* Coloca cada label numa linha */
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2e7d32;
+            font-size: 16px;
+        }
+
+        input, textarea {
+            width: 100%; /* Ocupa toda a largura */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #a5d6a7;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; /* Para o padding não estourar a largura */
+        }
+
+        textarea {
+            height: 100px; /* Altura da caixa de texto */
+        }
+
+        /* Botão de enviar */
+        button {
+            background-color: #2e7d32; /* Verde */
+            color: white;
+            padding: 12px 30px;
+            border: none; /* Sem borda */
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer; /* Mãozinha ao passar o mouse */
+        }
+
+        button:hover {
+            background-color: #1b5e20; /* Fica mais escuro */
+        }
+
+        /* Mensagem de sucesso (começa escondida) */
+        #mensagem-ok {
+            display: none; /* Escondido */
+            background-color: #c8e6c9;
+            color: #1b5e20;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1b5e20; /* Verde escuro */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #a5d6a7;
+            text-decoration: none;
+        }
+
+        /* Botão para voltar ao topo */
+        .btn-topo {
+            display: none; /* Começa escondido */
+            position: fixed; /* Fica fixo na tela */
+            bottom: 20px;
+            right: 20px;
+            background-color: #2e7d32;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%; /* Fica redondo */
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+    <!-- Fim do CSS -->
+
+</head>
+<!-- Fim do head -->
+
+<body>
+    <!-- Aqui é o corpo do site, tudo que aparece na tela -->
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header>
+        <h1>🌱 Projeto Horta Sustentável - Agrinho 2026</h1>
+        <!-- Título do site -->
+        <p>1º Ano do Ensino Médio - Paraná</p>
+        <!-- Subtítulo -->
+    </header>
+
+    <!-- ===== MENU ===== -->
+    <nav>
+        <a href="#sobre">📖 Sobre</a>
+        <a href="#projeto">🌿 Projeto</a>
+        <a href="#resultados">📊 Resultados</a>
+        <a href="#contato">✉️ Contato</a>
+    </nav>
+
+    <!-- ===== CONTEÚDO ===== -->
+    <div class="conteudo">
+
+        <!-- Imagem da horta -->
+        <img class="img-principal" src="https://image.qwenlm.ai/public_source/4a9ece9f-1e65-4899-947c-c07c82b928ba/17343ff6c-cc3d-43b3-aeca-9ac893fc5786.png" alt="Horta escolar sustentável">
+
+        <!-- ===== SEÇÃO SOBRE ===== -->
+        <div class="secao" id="sobre">
+            <h2>📖 Sobre o Projeto</h2>
+            <!-- Título da seção -->
+            <p>
+                <!-- Explicação do projeto -->
+                Nós somos alunos do 1º ano do ensino médio e desenvolvemos o projeto
+                <strong>"Horta Sustentável"</strong> para a competição <strong>Agrinho</strong>.
+                O objetivo é aprender sobre agricultura sustentável e ajudar a escola
+                a cuidar melhor do meio ambiente.
+            </p>
+            <p>
+                <!-- Mais explicação -->
+                Através da compostagem, captação de água da chuva e cultivo orgânico,
+                estamos transformando um espaço da nossa escola em uma horta produtiva.
+                Toda a comunidade escolar está envolvida no projeto.
+            </p>
+        </div>
+
+        <!-- ===== SEÇÃO PROJETO ===== -->
+        <div class="secao" id="projeto">
+            <h2>🌿 O Que Fizemos</h2>
+            <!-- Título da seção -->
+
+            <!-- Caixa 1 -->
+            <div class="caixa">
+                <h3>♻️ Compostagem</h3>
+                <!-- Título da caixa -->
+                <p>
+                    <!-- Texto da caixa -->
+                    Pegamos os restos de comida da cantina e fizemos compostagem.
+                    O adubo que produzimos usamos na horta. Isso diminui o lixo
+                    da escola e ainda gera nutrientes para as plantas.
+                </p>
+            </div>
+
+            <!-- Caixa 2 -->
+            <div class="caixa">
+                <h3>💧 Água da Chuva</h3>
+                <p>
+                    Colocamos uma cisterna para pegar água da chuva.
+                    Essa água é usada para regar a horta, assim economizamos
+                    água potável.
+                </p>
+            </div>
+
+            <!-- Caixa 3 -->
+            <div class="caixa">
+                <h3>🥬 Horta Orgânica</h3>
+                <p>
+                    Plantamos alface, tomate, cebolinha e outras verduras sem
+                    agrotóxico. Os alimentos vão para a merenda da escola,
+                    deixando a alimentação mais saudável.
+                </p>
+            </div>
+        </div>
+
+        <!-- ===== SEÇÃO RESULTADOS ===== -->
+        <div class="secao" id="resultados">
+            <h2>📊 Nossos Resultados</h2>
+            <!-- Título da seção -->
+
+            <ul class="lista-resultados">
+                <!-- Lista sem bolinhas -->
+                <li>✅ <strong>40% menos lixo</strong> orgânico na cantina</li>
+                <li>✅ <strong>300 litros de água</strong> economizados por semana</li>
+                <li>✅ <strong>50 kg de alimentos</strong> colhidos no semestre</li>
+                <li>✅ <strong>120 alunos</strong> participando do projeto</li>
+            </ul>
+        </div>
+
+        <!-- ===== SEÇÃO CONTATO ===== -->
+        <div class="secao" id="contato">
+            <h2>✉️ Entre em Contato</h2>
+            <p>Quer saber mais sobre nosso projeto? Mande uma mensagem!</p>
+
+            <form id="form-contato">
+                <!-- Formulário com id para o JavaScript pegar -->
+
+                <!-- Campo nome -->
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome">
+
+                <!-- Campo email -->
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="seu@email.com">
+
+                <!-- Campo mensagem -->
+                <label for="msg">Mensagem:</label>
+                <textarea id="msg" placeholder="Escreva sua mensagem..."></textarea>
+
+                <!-- Botão -->
+                <button type="submit">Enviar</button>
+            </form>
+
+            <!-- Mensagem que aparece depois de enviar -->
+            <div id="mensagem-ok">✅ Mensagem enviada com sucesso!</div>
+        </div>
+
+    </div>
+    <!-- Fim do conteúdo -->
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer>
+        <p><strong>Projeto Horta Sustentável - Agrinho 2026</strong></p>
+        <p>1º Ano do Ensino Médio | Paraná</p>
+        <p>
+            <a href="https://www.agrinho.com.br" target="_blank">Site oficial do Agrinho</a>
+        </p>
+    </footer>
+
+    <!-- Botão voltar ao topo -->
+    <button class="btn-topo" id="btn-topo">↑</button>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Pegando o botão de voltar ao topo
+        var btnTopo = document.getElementById("btn-topo");
+
+        // Pegando o formulário
+        var form = document.getElementById("form-contato");
+
+        // Pegando a mensagem de sucesso
+        var msgOk = document.getElementById("mensagem-ok");
+
+        // Quando rola a página, mostra ou esconde o botão
+        window.onscroll = function() {
+            // Se rolou mais de 300px, mostra o botão
+            if (window.scrollY > 300) {
+                btnTopo.style.display = "block";
+            } else {
+                // Senão, esconde
+                btnTopo.style.display = "none";
+            }
+        };
+
+        // Quando clica no botão, volta pro topo
+        btnTopo.onclick = function() {
+            window.scrollTo(0, 0); // Vai pra posição 0 (topo)
+        };
+
+        // Quando envia o formulário
+        form.onsubmit = function(evento) {
+            evento.preventDefault(); // Não recarrega a página
+
+            // Pega o nome digitado
+            var nome = document.getElementById("nome").value;
+
+            // Mostra um aviso
+            alert("Obrigado, " + nome + "! Sua mensagem foi recebida! 😊");
+
+            // Mostra a mensagem de sucesso
+            msgOk.style.display = "block";
+
+            // Limpa o formulário
+            form.reset();
+
+            // Depois de 5 segundos, esconde a mensagem
+            setTimeout(function() {
+                msgOk.style.display = "none";
+            }, 5000);
+        };
+
+    </script>
+    <!-- Fim do JavaScript -->
+
+</body>
+<!-- Fim do corpo -->
+
+</html>
+<!-- Fim do HTML -->
+
